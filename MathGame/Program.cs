@@ -3,6 +3,8 @@ using System;
 
 var date = DateTime.UtcNow.DayOfWeek;
 
+List<string> games = new List<string>();
+
 string name = GetName();
 Menu(name);
 static string GetName()
@@ -22,6 +24,7 @@ void Menu(string name)
         Console.Clear();
         Console.WriteLine($"Hello {name}, it is {date}. Thank you for playing this MathGame and starting the journey of self improvement!\n");
         Console.WriteLine($@"What game would you like to play today? Please choose from below: 
+V - View Game History
 A - Addition
 S - Subtraction
 M - Multiplication
@@ -32,6 +35,10 @@ Q - Quit Program"); // string interpolation / verbatim text (@)
         var gameChoice = Console.ReadLine(); // variable that holds a READLINE, waiting for user input to continue code
         switch (gameChoice.Trim())
         {
+            case "v":
+            case "V":
+                GameHistory();
+                break;
             case "a":
             case "A":
                 AdditionGame("Addition Game");
@@ -61,6 +68,22 @@ Q - Quit Program"); // string interpolation / verbatim text (@)
     while(isGameOn);
    
 }
+
+void GameHistory()
+{
+    Console.Clear();
+    Console.WriteLine("Previously Played Games");
+    Console.WriteLine("---------------------------");
+    foreach(string game in games)
+    {
+        Console.WriteLine(game);
+    }
+    Console.WriteLine("---------------------------");
+    Console.WriteLine("Press Enter To Go Back To The Menu");
+    Console.ReadLine();
+
+}
+
 void QuitGame(string message) // method with a local string variable named message
 {
     Console.WriteLine(message);
@@ -124,6 +147,7 @@ void DivisionGame(string message)
             Console.WriteLine($"You Got All Questions Right, Excellent! : )");
             break;
     }
+    AddGameHistory("Division Game", score);
     Console.WriteLine("Press Enter To Go Back To The Menu");
     Console.ReadLine();
 }
@@ -180,6 +204,7 @@ void MultiplicationGame(string message)
             Console.WriteLine($"You Got All Questions Right, Excellent! : )");
             break;
     }
+    AddGameHistory("Multiplication Game", score);
     Console.WriteLine("Press Enter To Go Back To The Menu");
     Console.ReadLine();
 }
@@ -235,6 +260,7 @@ void SubtractionGame(string message)
             Console.WriteLine($"You Got All Questions Right, Excellent! : )");
             break;
     }
+    AddGameHistory("Subtraction Game", score);
     Console.WriteLine("Press Enter To Go Back To The Menu");
     Console.ReadLine();
 }
@@ -290,6 +316,7 @@ void AdditionGame(string message)
             Console.WriteLine($"You Got All Questions Right, Excellent! : )");
             break;
     }
+    AddGameHistory("Addition Game",score);
     Console.WriteLine("Press Enter To Go Back To The Menu");
     Console.ReadLine() ;
 }
@@ -298,16 +325,16 @@ int[] GetDivisionNumbers()
 {
     var random = new Random();
 
-    int firstNumber = random.Next(0, 100);
-    int secondNumber = random.Next(0, 100);
+    int firstNumber = random.Next(1, 100);
+    int secondNumber = random.Next(1,100);
 
     var result = new int[2];
 
 
     while (firstNumber % secondNumber != 0)
     {
-        firstNumber = random.Next(0, 100);
-        secondNumber = random.Next(0, 100);
+        firstNumber = random.Next(1, 100);
+        secondNumber = random.Next(1, 100);
 
     }
 
@@ -316,6 +343,11 @@ int[] GetDivisionNumbers()
 
 
     return result;
+}
+
+void AddGameHistory(string gameType, int score)
+{
+        games.Add($"{DateTime.Now}   {gameType} - Score: {score}");
 }
 
 	
