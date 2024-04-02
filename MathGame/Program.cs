@@ -29,19 +29,19 @@ Q - Quit Program"); // string interpolartion / verbatim text (@)
     {
         case "a":
         case "A":
-            AdditionGame("Addition Game Was Chosen");
+            AdditionGame("Addition Game");
             break;
         case "s":
         case "S":
-            SubtractionGame("Subtraction Game Was Chosen");
+            SubtractionGame("Subtraction Game");
             break;
         case "m":
         case "M":
-            MultiplicationGame("Multiplication Game Was Chosen");
+            MultiplicationGame("Multiplication Game");
             break;
         case "d":
         case "D":
-            DivisionGame("Division Game Was Chosen");
+            DivisionGame("Division Game");
             break;
         case "q":
         case "Q":
@@ -60,12 +60,14 @@ void QuitGame(string message) // method with a local string variable named messa
 
 void DivisionGame(string message)
 {
-    Console.WriteLine(message);
+    
 
     int score = 0;
 
     for (int i = 0; i < 5; i++)
     {
+        Console.Clear();
+        Console.WriteLine(message);
 
         var divisionNumbers = GetDivisionNumbers();
 
@@ -120,14 +122,14 @@ void DivisionGame(string message)
 
 void MultiplicationGame(string message)
 {
-    Console.WriteLine(message);
-     
-    var random = new Random();
-
     int score = 0;
 
     for(int i = 0; i < 5; i++)
     {
+        Console.Clear();
+        Console.WriteLine(message);
+
+        var random = new Random();
         int firstNumber = random.Next(0,100);
         int secondNumber = random.Next(0,100);
 
@@ -136,12 +138,14 @@ void MultiplicationGame(string message)
 
         if (int.Parse(result) == firstNumber * secondNumber)
         {
-            Console.WriteLine("You Are Correct!");
+            Console.WriteLine("You Are Correct! Press Any Key To Continue..");
             score++;
+            Console.ReadLine();
         }
         else
         {
-            Console.WriteLine("You Are Incorrect");
+            Console.WriteLine("You Are Incorrect Press Any Key To Continue..");
+            Console.ReadLine();
         }
 
         if (i == 4) Console.WriteLine($"Game Over");
@@ -172,14 +176,14 @@ void MultiplicationGame(string message)
 
 void SubtractionGame(string message)
 {
-    Console.WriteLine(message);
-
-    var random = new Random();
-
     int score = 0;
 
     for ( int i = 0; i < 5; i++ )
     {
+        Console.Clear();
+        Console.WriteLine(message);
+
+        var random = new Random();
         int firstNumber = random.Next(0, 100);
         int secondNumber = random.Next(0, 100);
 
@@ -188,14 +192,15 @@ void SubtractionGame(string message)
 
         if( int.Parse(result) == firstNumber - secondNumber)
         {
-            Console.WriteLine("You Are Correct!");
+            Console.WriteLine("You Are Correct! Press Any Key To Continue..");
             score++;
+            Console.ReadLine();
         }
         else
         {
-            Console.WriteLine("You Are Incorrect!");
+            Console.WriteLine("You Are Incorrect Press Any Key To Continue..");
+            Console.ReadLine();
         }
-
         if (i == 4) Console.WriteLine($"Game Over");
     }
 
@@ -225,15 +230,14 @@ void SubtractionGame(string message)
 
 void AdditionGame(string message)
 {
-    Console.WriteLine(message);
-
-    var random = new Random();
-
     int score = 0;  
      
-
     for (int i = 0; i < 5; i++)
     {
+        Console.Clear();
+        Console.WriteLine(message);
+
+        var random = new Random();
         int firstNumber = random.Next(0, 100);
         int secondNumber = random.Next(0, 100);
 
@@ -242,12 +246,14 @@ void AdditionGame(string message)
 
         if (int.Parse(result) == firstNumber + secondNumber)
         {
-            Console.WriteLine("You are correct!");
+            Console.WriteLine("You Are Correct! Press Any Key To Continue..");
             score++;
+            Console.ReadLine();
         }
         else
         {
-            Console.WriteLine("You are incorrect!");
+            Console.WriteLine("You Are Incorrect Press Any Key To Continue..");
+            Console.ReadLine();
         }
 
         if (i == 4) Console.WriteLine($"Game Over");
