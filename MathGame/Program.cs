@@ -1,4 +1,4 @@
-﻿using static System.Formats.Asn1.AsnWriter;
+using static System.Formats.Asn1.AsnWriter;
 using System;
 
 var date = DateTime.UtcNow.DayOfWeek;
@@ -60,7 +60,7 @@ void QuitGame(string message) // method with a local string variable named messa
 
 void DivisionGame(string message)
 {
-    
+
 
     int score = 0;
 
@@ -74,7 +74,7 @@ void DivisionGame(string message)
         int firstNumber = divisionNumbers[0];
         int secondNumber = divisionNumbers[1];
 
-     
+
 
         Console.WriteLine($"{firstNumber} / {secondNumber}");
         var result = Console.ReadLine();
@@ -88,7 +88,7 @@ void DivisionGame(string message)
         else
         {
             Console.WriteLine("You Are Incorrect Press Any Key To Continue..");
-            Console.ReadLine() ;
+            Console.ReadLine();
         }
 
         if (i == 4) Console.WriteLine($"Game Over");
@@ -124,14 +124,14 @@ void MultiplicationGame(string message)
 {
     int score = 0;
 
-    for(int i = 0; i < 5; i++)
+    for (int i = 0; i < 5; i++)
     {
         Console.Clear();
         Console.WriteLine(message);
 
         var random = new Random();
-        int firstNumber = random.Next(0,100);
-        int secondNumber = random.Next(0,100);
+        int firstNumber = random.Next(0, 100);
+        int secondNumber = random.Next(0, 100);
 
         Console.WriteLine($"{firstNumber} * {secondNumber}");
         var result = Console.ReadLine();
@@ -178,7 +178,7 @@ void SubtractionGame(string message)
 {
     int score = 0;
 
-    for ( int i = 0; i < 5; i++ )
+    for (int i = 0; i < 5; i++)
     {
         Console.Clear();
         Console.WriteLine(message);
@@ -190,7 +190,7 @@ void SubtractionGame(string message)
         Console.WriteLine($"{firstNumber} - {secondNumber}");
         var result = Console.ReadLine();
 
-        if( int.Parse(result) == firstNumber - secondNumber)
+        if (int.Parse(result) == firstNumber - secondNumber)
         {
             Console.WriteLine("You Are Correct! Press Any Key To Continue..");
             score++;
@@ -230,8 +230,8 @@ void SubtractionGame(string message)
 
 void AdditionGame(string message)
 {
-    int score = 0;  
-     
+    int score = 0;
+
     for (int i = 0; i < 5; i++)
     {
         Console.Clear();
@@ -286,23 +286,24 @@ int[] GetDivisionNumbers()
 {
     var random = new Random();
 
-    int firstNumber = random.Next( 0, 100);
-    int secondNumber = random.Next(0,100);
+    int firstNumber = random.Next(0, 100);
+    int secondNumber = random.Next(0, 100);
 
     var result = new int[2];
 
-   
-    while(firstNumber % secondNumber != 0)
+
+    while (firstNumber % secondNumber != 0)
     {
-         firstNumber = random.Next(0, 100);
-         secondNumber = random.Next(0, 100);
+        firstNumber = random.Next(0, 100);
+        secondNumber = random.Next(0, 100);
 
     }
 
     result[0] = firstNumber; result[1] = secondNumber;
 
-    
+
 
     return result;
 }
 
+	
