@@ -9,53 +9,62 @@ static string GetName()
 {
     Console.WriteLine("Please Enter Your Name");
 
-    string name = Console.ReadLine(); // Console.READLINE waits for user input befor moving on 
+    string name = Console.ReadLine(); // Console.READLINE waits for user input before moving on 
     return name;
 }
 void Menu(string name)
 {
     Console.WriteLine("------------------------------------------");
-    Console.WriteLine($"Hello {name}, it is {date}. Thank you for playing this MathGame and starting the journey of self improvement!\n");
-    Console.WriteLine($@"What game would you like to play today? Please choose from below: 
+    bool isGameOn = true;
+
+    do
+    {
+        Console.Clear();
+        Console.WriteLine($"Hello {name}, it is {date}. Thank you for playing this MathGame and starting the journey of self improvement!\n");
+        Console.WriteLine($@"What game would you like to play today? Please choose from below: 
 A - Addition
 S - Subtraction
 M - Multiplication
 D - Division
-Q - Quit Program"); // string interpolartion / verbatim text (@)
-    Console.WriteLine("-----------------------------------------");
+Q - Quit Program"); // string interpolation / verbatim text (@)
+        Console.WriteLine("-----------------------------------------");
 
-    var gameChoice = Console.ReadLine(); // variable that holds a READLINE, waiting for user input to continue code
-    switch (gameChoice.Trim())
-    {
-        case "a":
-        case "A":
-            AdditionGame("Addition Game");
-            break;
-        case "s":
-        case "S":
-            SubtractionGame("Subtraction Game");
-            break;
-        case "m":
-        case "M":
-            MultiplicationGame("Multiplication Game");
-            break;
-        case "d":
-        case "D":
-            DivisionGame("Division Game");
-            break;
-        case "q":
-        case "Q":
-            QuitGame("Goodbye For Now");
-            break;
-        default:
-            Console.WriteLine("Invalid Input");
-            break;
+        var gameChoice = Console.ReadLine(); // variable that holds a READLINE, waiting for user input to continue code
+        switch (gameChoice.Trim())
+        {
+            case "a":
+            case "A":
+                AdditionGame("Addition Game");
+                break;
+            case "s":
+            case "S":
+                SubtractionGame("Subtraction Game");
+                break;
+            case "m":
+            case "M":
+                MultiplicationGame("Multiplication Game");
+                break;
+            case "d":
+            case "D":
+                DivisionGame("Division Game");
+                break;
+            case "q":
+            case "Q":
+                isGameOn = false;
+                QuitGame("Goodbye For Now");
+                break;
+            default:
+                Console.WriteLine("Invalid Input");
+                break;
+        }
     }
+    while(isGameOn);
+   
 }
 void QuitGame(string message) // method with a local string variable named message
 {
     Console.WriteLine(message);
-    Environment.Exit(1);
+    
 }
 
 void DivisionGame(string message)
@@ -81,13 +90,13 @@ void DivisionGame(string message)
 
         if (int.Parse(result) == firstNumber / secondNumber)
         {
-            Console.WriteLine("You Are Correct! Press Any Key To Continue..");
+            Console.WriteLine("You Are Correct! Press Enter To Continue..");
             score++;
             Console.ReadLine();
         }
         else
         {
-            Console.WriteLine("You Are Incorrect Press Any Key To Continue..");
+            Console.WriteLine("You Are Incorrect Press Enter To Continue..");
             Console.ReadLine();
         }
 
@@ -115,9 +124,8 @@ void DivisionGame(string message)
             Console.WriteLine($"You Got All Questions Right, Excellent! : )");
             break;
     }
-
-
-
+    Console.WriteLine("Press Enter To Go Back To The Menu");
+    Console.ReadLine();
 }
 
 void MultiplicationGame(string message)
@@ -138,13 +146,13 @@ void MultiplicationGame(string message)
 
         if (int.Parse(result) == firstNumber * secondNumber)
         {
-            Console.WriteLine("You Are Correct! Press Any Key To Continue..");
+            Console.WriteLine("You Are Correct! Press Enter To Continue..");
             score++;
             Console.ReadLine();
         }
         else
         {
-            Console.WriteLine("You Are Incorrect Press Any Key To Continue..");
+            Console.WriteLine("You Are Incorrect Press Enter To Continue..");
             Console.ReadLine();
         }
 
@@ -172,6 +180,8 @@ void MultiplicationGame(string message)
             Console.WriteLine($"You Got All Questions Right, Excellent! : )");
             break;
     }
+    Console.WriteLine("Press Enter To Go Back To The Menu");
+    Console.ReadLine();
 }
 
 void SubtractionGame(string message)
@@ -192,13 +202,13 @@ void SubtractionGame(string message)
 
         if (int.Parse(result) == firstNumber - secondNumber)
         {
-            Console.WriteLine("You Are Correct! Press Any Key To Continue..");
+            Console.WriteLine("You Are Correct! Press Enter To Continue..");
             score++;
             Console.ReadLine();
         }
         else
         {
-            Console.WriteLine("You Are Incorrect Press Any Key To Continue..");
+            Console.WriteLine("You Are Incorrect Press Enter To Continue..");
             Console.ReadLine();
         }
         if (i == 4) Console.WriteLine($"Game Over");
@@ -225,7 +235,8 @@ void SubtractionGame(string message)
             Console.WriteLine($"You Got All Questions Right, Excellent! : )");
             break;
     }
-
+    Console.WriteLine("Press Enter To Go Back To The Menu");
+    Console.ReadLine();
 }
 
 void AdditionGame(string message)
@@ -246,13 +257,13 @@ void AdditionGame(string message)
 
         if (int.Parse(result) == firstNumber + secondNumber)
         {
-            Console.WriteLine("You Are Correct! Press Any Key To Continue..");
+            Console.WriteLine("You Are Correct! Press Enter To Continue..");
             score++;
             Console.ReadLine();
         }
         else
         {
-            Console.WriteLine("You Are Incorrect Press Any Key To Continue..");
+            Console.WriteLine("You Are Incorrect Press Enter To Continue..");
             Console.ReadLine();
         }
 
@@ -279,7 +290,8 @@ void AdditionGame(string message)
             Console.WriteLine($"You Got All Questions Right, Excellent! : )");
             break;
     }
-
+    Console.WriteLine("Press Enter To Go Back To The Menu");
+    Console.ReadLine() ;
 }
 
 int[] GetDivisionNumbers()
