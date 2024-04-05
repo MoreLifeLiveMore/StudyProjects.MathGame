@@ -1,8 +1,10 @@
-﻿namespace MathGame
+﻿using MathGame.Models;
+
+namespace MathGame
 {
     internal class Helpers
     {
-       static List<string> games = new List<string>();
+       static List<Game> games = new List<Game>();
        internal static string GetName()
         {
             Console.WriteLine("Please Enter Your Name");
@@ -16,9 +18,9 @@
             Console.Clear();
             Console.WriteLine("Previously Played Games");
             Console.WriteLine("---------------------------");
-            foreach (string game in games)
+            foreach (Game game in games)
             {
-                Console.WriteLine(game);
+                Console.WriteLine($"{game.date} - {game.type}: {game.Score} Points!");
             }
             Console.WriteLine("---------------------------");
             Console.WriteLine("Press Enter To Go Back To The Menu");
@@ -58,7 +60,12 @@
 
        internal static void AddGameHistory(string gameType, int score)
         {
-            games.Add($"{DateTime.Now}   {gameType} - Score: {score}");
+            games.Add(new Game
+            {
+                date = DateTime.Now,
+                Score = score,
+                type = gameType,
+            });
         }
 
 
