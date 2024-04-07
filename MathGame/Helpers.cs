@@ -20,7 +20,7 @@ namespace MathGame
             Console.WriteLine("---------------------------");
             foreach (Game game in games)
             {
-                Console.WriteLine($"{game.date} - {game.type}: {game.Score} Points!");
+                Console.WriteLine($"{game.date} - {game.Gametype}: {game.Score} Points!");
             }
             Console.WriteLine("---------------------------");
             Console.WriteLine("Press Enter To Go Back To The Menu");
@@ -58,13 +58,13 @@ namespace MathGame
             return result;
         }
 
-       internal static void AddGameHistory(string gameType, int score)
+       internal static void AddGameHistory(GameType gameType, int score)
         {
             games.Add(new Game
             {
                 date = DateTime.Now,
                 Score = score,
-                type = gameType,
+                Gametype = gameType,
             });
         }
 

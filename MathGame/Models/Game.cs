@@ -12,5 +12,13 @@ internal class Game
 
     public DateTime date { get; set; }
 
-    public string type { get; set; }
+    public GameType Gametype { get; set; }
+
+}
+internal enum GameType
+{
+    Addition,
+    Subtraction,
+    Division,
+    Multiplication
 }

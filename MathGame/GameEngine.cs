@@ -1,4 +1,6 @@
-﻿namespace MathGame
+﻿using MathGame.Models;
+
+namespace MathGame
 {
     internal class GameEngine
     {
@@ -60,7 +62,7 @@
                     Console.WriteLine($"You Got All Questions Right, Excellent! : )");
                     break;
             }
-            Helpers.AddGameHistory("Division Game", score);
+            Helpers.AddGameHistory(GameType.Division, score);
             Console.WriteLine("Press Enter To Go Back To The Menu");
             Console.ReadLine();
         }
@@ -117,7 +119,7 @@
                     Console.WriteLine($"You Got All Questions Right, Excellent! : )");
                     break;
             }
-            Helpers.AddGameHistory("Multiplication Game", score);
+            Helpers.AddGameHistory(GameType.Multiplication, score);
             Console.WriteLine("Press Enter To Go Back To The Menu");
             Console.ReadLine();
         }
@@ -173,7 +175,7 @@
                     Console.WriteLine($"You Got All Questions Right, Excellent! : )");
                     break;
             }
-            Helpers.AddGameHistory("Subtraction Game", score);
+            Helpers.AddGameHistory(GameType.Subtraction, score);
             Console.WriteLine("Press Enter To Go Back To The Menu");
             Console.ReadLine();
         }
@@ -229,7 +231,7 @@
                     Console.WriteLine($"You Got All Questions Right, Excellent! : )");
                     break;
             }
-            Helpers.AddGameHistory("Addition Game", score);
+            Helpers.AddGameHistory(GameType.Addition, score);
             Console.WriteLine("Press Enter To Go Back To The Menu");
             Console.ReadLine();
         }
