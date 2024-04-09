@@ -24,7 +24,7 @@ Q - Quit Program"); // string interpolation / verbatim text (@)
                 Console.WriteLine("-----------------------------------------");
 
                 var gameChoice = Console.ReadLine(); // variable that holds a READLINE, waiting for user input to continue code
-                switch (gameChoice.Trim())
+                switch (gameChoice!.Trim())
                 {
                     case "v":
                     case "V":

@@ -1,4 +1,6 @@
 ﻿using MathGame.Models;
+using System;
+using System.Linq;
 
 namespace MathGame
 {
@@ -9,24 +11,48 @@ namespace MathGame
         {
             Console.WriteLine("Please Enter Your Name");
 
-            string name = Console.ReadLine(); // Console.READLINE waits for user input before moving on 
-            return name;
+            string name = Console.ReadLine()!; // Console.READLINE waits for user input before moving on 
+            return name!;
         }
 
        internal void GameHistory()
+
         {
+             var gamesToPrint = games.Where(x => x.GameType == GameType.Division);
+            // var gamesToPrint = games.Where(x => x.date > new DateTime());
+            // var gamesToPrint = games.Where(x => x.date > new DateTime() && x.Score > 3);
+           // var gamesToPrint = games.Where(x => x.date > new DateTime()).OrderByDescending(x => x.Score);
+
             Console.Clear();
-            Console.WriteLine("Previously Played Games");
+            Console.WriteLine("Games History");
             Console.WriteLine("---------------------------");
-            foreach (Game game in games)
+            foreach (var game in gamesToPrint)
             {
-                Console.WriteLine($"{game.date} - {game.Gametype}: {game.Score} Points!");
+                Console.WriteLine($"{game.date} - {game.GameType}: {game.Score}pts");
             }
-            Console.WriteLine("---------------------------");
-            Console.WriteLine("Press Enter To Go Back To The Menu");
+            Console.WriteLine("---------------------------\n");
+            Console.WriteLine("Press any key to return to Main Menu");
             Console.ReadLine();
 
         }
+
+       /* internal void Search()
+        {
+            var search = Console.ReadLine();
+            var gamesHistory = games.Where( x => x.GameType.ToString() == search).ToList();
+
+            Console.Clear();
+            Console.WriteLine("Search");
+            Console.WriteLine("---------------------------");
+            foreach (Game game in gamesHistory)
+            {
+                Console.WriteLine(gamesHistory);
+            }
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("Press Enter To Go Back To The Menu Or S To Search Game History");
+
+            var viewChoice = Console.ReadLine();
+        } */
 
        internal void QuitGame(string message) // method with a local string variable named message
         {
@@ -64,7 +90,7 @@ namespace MathGame
             {
                 date = DateTime.Now,
                 Score = score,
-                Gametype = gameType,
+                GameType = gameType,
             });
         }
 

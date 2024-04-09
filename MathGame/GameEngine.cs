@@ -26,7 +26,7 @@ namespace MathGame
                 Console.WriteLine($"{firstNumber} / {secondNumber}");
                 var result = Console.ReadLine();
 
-                if (int.Parse(result) == firstNumber / secondNumber)
+                if (int.Parse(result!) == firstNumber / secondNumber)
                 {
                     Console.WriteLine("You Are Correct! Press Enter To Continue..");
                     score++;
@@ -83,7 +83,7 @@ namespace MathGame
                 Console.WriteLine($"{firstNumber} * {secondNumber}");
                 var result = Console.ReadLine();
 
-                if (int.Parse(result) == firstNumber * secondNumber)
+                if (int.Parse(result!) == firstNumber * secondNumber)
                 {
                     Console.WriteLine("You Are Correct! Press Enter To Continue..");
                     score++;
@@ -140,7 +140,7 @@ namespace MathGame
                 Console.WriteLine($"{firstNumber} - {secondNumber}");
                 var result = Console.ReadLine();
 
-                if (int.Parse(result) == firstNumber - secondNumber)
+                if (int.Parse(result!) == firstNumber - secondNumber)
                 {
                     Console.WriteLine("You Are Correct! Press Enter To Continue..");
                     score++;
@@ -196,7 +196,7 @@ namespace MathGame
                 Console.WriteLine($"{firstNumber} + {secondNumber}");
                 var result = Console.ReadLine();
 
-                if (int.Parse(result) == firstNumber + secondNumber)
+                if (int.Parse(result!) == firstNumber + secondNumber)
                 {
                     Console.WriteLine("You Are Correct! Press Enter To Continue..");
                     score++;
