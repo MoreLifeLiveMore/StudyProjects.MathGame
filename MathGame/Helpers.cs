@@ -12,13 +12,18 @@ namespace MathGame
             Console.WriteLine("Please Enter Your Name");
 
             string name = Console.ReadLine()!; // Console.READLINE waits for user input before moving on 
+            while(string.IsNullOrEmpty(name))
+            {
+                Console.WriteLine("Invalid Input. Try Again");
+                name = Console.ReadLine()!;
+            }
             return name!;
         }
 
        internal void GameHistory()
 
         {
-             var gamesToPrint = games.Where(x => x.GameType == GameType.Division);
+             //var gamesToPrint = games.Where(x => x.GameType == GameType.Division);
             // var gamesToPrint = games.Where(x => x.date > new DateTime());
             // var gamesToPrint = games.Where(x => x.date > new DateTime() && x.Score > 3);
            // var gamesToPrint = games.Where(x => x.date > new DateTime()).OrderByDescending(x => x.Score);
@@ -26,7 +31,7 @@ namespace MathGame
             Console.Clear();
             Console.WriteLine("Games History");
             Console.WriteLine("---------------------------");
-            foreach (var game in gamesToPrint)
+            foreach (var game in games)
             {
                 Console.WriteLine($"{game.date} - {game.GameType}: {game.Score}pts");
             }
@@ -94,6 +99,14 @@ namespace MathGame
             });
         }
 
-
+        internal static string? ValidateResult( string result)
+        {
+            while (string.IsNullOrEmpty(result) || !Int32.TryParse(result, out _))
+            {
+                Console.WriteLine("Invalid Input. Try Again");
+                result = Console.ReadLine()!;
+            }
+            return result;
+        }
     }
 }

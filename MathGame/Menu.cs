@@ -8,12 +8,16 @@
        internal void ShowMenu(string name, DayOfWeek date)
         {
             Console.WriteLine("------------------------------------------");
+            Console.Clear();
+            Console.WriteLine($"Hello {name}, it is {date}. Thank you for playing this MathGame and starting the journey of self improvement!\n");
+            Console.WriteLine("Press Any Key To Show Menu");
+            Console.ReadLine();
+
             bool isGameOn = true;
 
             do
             {
                 Console.Clear();
-                Console.WriteLine($"Hello {name}, it is {date}. Thank you for playing this MathGame and starting the journey of self improvement!\n");
                 Console.WriteLine($@"What game would you like to play today? Please choose from below: 
 V - View Game History
 A - Addition
